@@ -14,7 +14,7 @@ setMsjList(history);
 console.log(history);
 
 
-},[sendMessage])
+},[msjList]);
 
 
 
@@ -30,16 +30,8 @@ const handleClick = async () => {
       try {
 
         const response = await sendMessage(message);
-
-
-        const newMessage = {
-          role: "user",
-          parts: [{ text: message }],
-        };
-        setMsjList([...msjList, newMessage]);
-        setMessage("");
-
-        
+        consol.log(response);
+        setMsjList(response);
       } catch (error) {
         console.error(error); // Use console.error for errors
       }

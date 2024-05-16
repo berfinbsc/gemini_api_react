@@ -17,10 +17,8 @@ try {
     console.log(history);
      localStorage.clear();
      localStorage.setItem('history',JSON.stringify(history.history));
-    const x =localStorage.getItem('history');
-    const y = JSON.parse(x);
-    console.log(y);
-    return history;
+
+    return history.history;
 } catch (error) {
     console.log(error);
 }
