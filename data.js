@@ -3,7 +3,7 @@ const history=[
         "role": "user",
         "parts": [
             {
-                "text": "Hello !"
+                "text": "Merhaba"
             }
         ]
     },
@@ -11,7 +11,7 @@ const history=[
         "role": "model",
         "parts": [
             {
-                "text": "Hi there!"
+                "text": "Merhaba ben psikolojik destek yapay zeka chat botuyum.Size nasıl yardımcı olabilirim?"
             }
         ]
     }

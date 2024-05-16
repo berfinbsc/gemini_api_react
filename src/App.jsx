@@ -7,12 +7,15 @@ function App() {
 
 
   useEffect(()=>{
-
     const fonk= async()=>{
-      
-        const history = await getData();
-        console.log(history);
-        localStorage.setItem('history',JSON.stringify(history));
+      const data = await localStorage.getItem('history');
+      const history = JSON.parse(data);
+      if(!history){
+        const helloWord = await getData();
+        console.log(helloWord);
+        localStorage.setItem('history',JSON.stringify(helloWord));
+      }
+       
       
     }
     fonk();
