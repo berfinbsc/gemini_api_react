@@ -8,6 +8,7 @@ import { useState } from "react";
     const [msjList,setMsjList] = useState([]);
 
 useEffect(()=>{
+  
 const data =localStorage.getItem('history');
 const history = JSON.parse(data);
 setMsjList(history);
@@ -30,6 +31,7 @@ const handleClick = async () => {
       try {
 
         const response = await sendMessage(message);
+        setMessage('');
         consol.log(response);
         setMsjList(response);
       } catch (error) {
