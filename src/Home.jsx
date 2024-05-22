@@ -1,21 +1,13 @@
 import { useEffect } from "react"
 import { sendMessage } from "./Api/Api";
 import { useState } from "react";
- const Home = () => {
+import { getData } from "../data";
 
+ const Home = () => {
+  const data =  getData();
 
     const [message,setMessage] = useState('');
-    const [msjList,setMsjList] = useState([]);
-
-useEffect(()=>{
-  
-const data =localStorage.getItem('history');
-const history = JSON.parse(data);
-setMsjList(history);
-console.log(history);
-
-
-},[msjList]);
+    const [msjList,setMsjList] = useState(data);
 
 
 
@@ -24,21 +16,31 @@ const handleChange = (e) => {
 }
 
 
-
-
 const handleClick = async () => {
-    if (message) {
-      try {
+  try {
 
-        const response = await sendMessage(message);
-        setMessage('');
-        consol.log(response);
-        setMsjList(response);
-      } catch (error) {
-        console.error(error); // Use console.error for errors
-      }
+    console.log(message);
+const msj = {
+  role: "user",
+  parts: [{ text: message }]
+}
+console.log(msj);
+const response = await sendMessage(message, msjList);
+console.log('Response:', response);
+setMsjList(prevMsjList => [...prevMsjList, msj]);
+setMessage(''); 
+const cvp = {
+  role: "model",
+  parts: [{ text: response}]
+}
+setMsjList(prevMsjList => [...prevMsjList, cvp]);
+
+
+  } catch (error) {
+    console.error('Error:', error); 
+  }
     }
-  };
+  
 
 
 
@@ -62,17 +64,17 @@ const handleClick = async () => {
         < div className="container">
 
 <div className="message-list">
-    
-      {
-      msjList.map((message, index) => (
+  {
+   
+      msjList.slice(1).map((message, index) => (
         <div key={index} className={`message ${message.role}`}>
           <p className="p">{message.parts[0].text}</p>
         </div>
       ))
-      
-      }
     
-    </div>
+      
+  }
+</div>
 
 
 
@@ -93,6 +95,6 @@ const handleClick = async () => {
         </div>
         
     )
-}
-
+  }
+  
 export default Home;
