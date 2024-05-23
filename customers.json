@@ -1,0 +1,117 @@
+{
+    "customers": [
+        {
+            "email": "musteri1@ornek.com",
+            "siparisNumarasi": "SIP123456",
+            "iadeNumarasi": "IADE789012",
+            "siparisDetaylari": {
+                "urunAdi": "Telefon",
+                "urunFiyati": 1500,
+                "urunKategorisi": "Elektronik",
+                "urunAdedi": 1,
+                "urunToplami": 1500,
+                "saticiAdi": "TeknoStore",
+                "sepetToplami": 1500,
+                "siparisDurumu": "Hazırlanıyor",
+                "kargoTakipNumarasi": "KARGO123456",
+                "kargoSirketi": "ExpressKargo",
+                "indirimKuponlari": [
+                    {
+                        "kuponKodu": "INDIRIM25",
+                        "sonKullanmaTarihi": "2024-06-30",
+                        "indirimMiktari": 25
+                    }
+                ],
+                "bekleyenIadeler": []
+            }
+        },
+        {
+            "email": "musteri2@ornek.com",
+            "siparisNumarasi": "SIP234567",
+            "iadeNumarasi": "IADE890123",
+            "siparisDetaylari": {
+                "urunAdi": "Ayakkabı",
+                "urunFiyati": 200,
+                "urunKategorisi": "Ayakkabı & Aksesuar",
+                "urunAdedi": 2,
+                "urunToplami": 400,
+                "saticiAdi": "TrendyShoes",
+                "sepetToplami": 400,
+                "siparisDurumu": "Yolda",
+                "sehir": "İstanbul",
+                "kargoSuresi": 3,
+                "kargoTakipNumarasi": "KARGO234567",
+                "kargoSirketi": "FastCargo",
+                "indirimKuponlari": [],
+                "bekleyenIadeler": [
+                    {
+                        "durum": "İade alındı",
+                        "onay": "İade onaylandı",
+                        "iade": "Ücret iadesi yapıldı"
+                    }
+                ]
+            }
+        },
+        {
+            "email": "musteri3@ornek.com",
+            "siparisNumarasi": "SIP345678",
+            "iadeNumarasi": "IADE901234",
+            "siparisDetaylari": {
+                "urunAdi": "Kitap Seti",
+                "urunFiyati": 120,
+                "urunKategorisi": "Kitap",
+                "urunAdedi": 1,
+                "urunToplami": 120,
+                "saticiAdi": "BookHouse",
+                "sepetToplami": 120,
+                "siparisDurumu": "Teslim Edilmiş",
+                "indirimKuponlari": [],
+                "bekleyenIadeler": []
+            }
+        },
+        {
+            "email": "musteri4@ornek.com",
+            "siparisNumarasi": "SIP456789",
+            "iadeNumarasi": "IADE012345",
+            "siparisDetaylari": {
+                "urunAdi": "Laptop",
+                "urunFiyati": 3000,
+                "urunKategorisi": "Bilgisayar",
+                "urunAdedi": 1,
+                "urunToplami": 3000,
+                "saticiAdi": "ComputerWorld",
+                "sepetToplami": 3000,
+                "siparisDurumu": "Yolda",
+                "sehir": "Ankara",
+                "kargoSuresi": 2,
+                "kargoTakipNumarasi": "KARGO456789",
+                "kargoSirketi": "SpeedyShipping",
+                "indirimKuponlari": [
+                    {
+                        "kuponKodu": "KAMPANYA50",
+                        "sonKullanmaTarihi": "2024-07-15",
+                        "indirimMiktari": 50
+                    }
+                ],
+                "bekleyenIadeler": []
+            }
+        },
+        {
+            "email": "musteri5@ornek.com",
+            "siparisNumarasi": "SIP567890",
+            "iadeNumarasi": "IADE123456",
+            "siparisDetaylari": {
+                "urunAdi": "Kulaklik",
+                "urunFiyati": 100,
+                "urunKategorisi": "Elektronik",
+                "urunAdedi": 1,
+                "urunToplami": 100,
+                "saticiAdi": "SoundTech",
+                "sepetToplami": 100,
+                "siparisDurumu": "Teslim Edilmiş",
+                "indirimKuponlari": [],
+                "bekleyenIadeler": []
+            }
+        }
+    ]
+}

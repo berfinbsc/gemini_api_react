@@ -1,100 +1,79 @@
-import { useEffect } from "react"
+import React, { useState, useEffect, useRef } from 'react';
 import { sendMessage } from "./Api/Api";
-import { useState } from "react";
 import { getData } from "../data";
+import './index.css'; // CSS dosyanızı buradan import edin
 
- const Home = () => {
-  const data =  getData();
+const Home = () => {
+  const data = getData();
+  const [message, setMessage] = useState('');
+  const [msjList, setMsjList] = useState(data);
+  const [loading, setLoading] = useState(false);
+  const chatHistoryRef = useRef(null);
 
-    const [message,setMessage] = useState('');
-    const [msjList,setMsjList] = useState(data);
-
-
-
-const handleChange = (e) => {
+  const handleChange = (e) => {
     setMessage(e.target.value);
-}
+  };
 
+  const handleClick = async () => {
+    setLoading(true);
+    try {
+      const msj = { role: "user", parts: [{ text: message }] };
+      setMsjList(prevMsjList => [...prevMsjList, msj]);
+      setMessage('');
+      setLoading(true);
+      const response = await sendMessage(message, msjList);
 
-const handleClick = async () => {
-  try {
+      const cvp = { role: "model", parts: [{ text: response }] };
+      setLoading(false);
+      setMsjList(prevMsjList => [...prevMsjList, cvp]);
+    } catch (error) {
+      console.error('Error:', error);
+    } 
+  };
 
-    console.log(message);
-const msj = {
-  role: "user",
-  parts: [{ text: message }]
-}
-console.log(msj);
-const response = await sendMessage(message, msjList);
-console.log('Response:', response);
-setMsjList(prevMsjList => [...prevMsjList, msj]);
-setMessage(''); 
-const cvp = {
-  role: "model",
-  parts: [{ text: response}]
-}
-setMsjList(prevMsjList => [...prevMsjList, cvp]);
-
-
-  } catch (error) {
-    console.error('Error:', error); 
-  }
+  useEffect(() => {
+    if (chatHistoryRef.current) {
+      chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
     }
-  
+  }, [msjList]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    return (
-        < div className="container">
-
-<div className="message-list">
-  {
-   
-      msjList.slice(1).map((message, index) => (
-        <div key={index} className={`message ${message.role}`}>
-          <p className="p">{message.parts[0].text}</p>
-        </div>
-      ))
-    
+  return (
+    <div id="chat-container">
+      <div className='customerTitle'>
+      <img  src="https://t4.ftcdn.net/jpg/03/02/16/77/360_F_302167753_zO96cQJziw0BYKOSw0plniVSlkxdGTC5.jpg" alt="customer-service" width={100} height={100}  />
+      <h3 >Müşteri Hizmetleri</h3>
+     
+      </div>
       
-  }
-</div>
-
-
-
-        <div >
-       <div className="input-container">
-       <input className="input"
+      <div id="chat-history" ref={chatHistoryRef}>
+        {msjList.slice(1).map((message, index) => (
+          <div key={index} className={`message ${message.role }`}>
+            <p>{message.parts[0].text}</p>
+          </div>
+        ))}
+      </div>
+      <div>
+      {loading ? (
+        <img src="https://media.tenor.com/NqKNFHSmbssAAAAi/discord-loading-dots-discord-loading.gif" alt="yazıyor..." width={28} height={14}/>
+      ) : (
+        " "
+      )}
+    </div>
+      <form id="chat-form" onSubmit={(e) => { e.preventDefault(); handleClick(); }}>
+        <input
           type="text"
-          placeholder="Bir şeyler yazın..."
+          id="user-input"
+          placeholder="Mesajınızı yazınız..."
           value={message}
           onChange={handleChange}
         />
-        <button className="button" onClick={handleClick}></button>
-    
-       </div>
-        
-      </div>
+        <button type="submit">Gönder</button>
+      </form>
+      
+    </div>
+  );
+};
 
-        </div>
-        
-    )
-  }
-  
 export default Home;
+
+
