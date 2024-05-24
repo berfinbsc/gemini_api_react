@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { sendMessage } from "./Api/Api";
 import { getData } from "../data";
-import './index.css'; // CSS dosyanızı buradan import edin
+import './index.css';
 
 const Home = () => {
   const data = getData();

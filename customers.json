@@ -1,7 +1,9 @@
 {
     "customers": [
         {
-            "email": "musteri1@ornek.com",
+            "email": "ahmet.yilmaz@ornek.com",
+            "kullaniciAdi": "Ahmet Yılmaz",
+            "adres": "Atatürk Mah. 123. Sok. No: 4, Çankaya, Ankara, Türkiye",
             "siparisNumarasi": "SIP123456",
             "iadeNumarasi": "IADE789012",
             "siparisDetaylari": {
@@ -26,7 +28,9 @@
             }
         },
         {
-            "email": "musteri2@ornek.com",
+            "email": "ayse.demir@ornek.com",
+            "kullaniciAdi": "Ayşe Demir",
+            "adres": "Cumhuriyet Mah. 456. Cad. No: 7, Kadıköy, İstanbul, Türkiye",
             "siparisNumarasi": "SIP234567",
             "iadeNumarasi": "IADE890123",
             "siparisDetaylari": {
@@ -53,7 +57,9 @@
             }
         },
         {
-            "email": "musteri3@ornek.com",
+            "email": "mehmet.kaya@ornek.com",
+            "kullaniciAdi": "Mehmet Kaya",
+            "adres": "Gazi Mah. 789. Sk. No: 12, Bornova, İzmir, Türkiye",
             "siparisNumarasi": "SIP345678",
             "iadeNumarasi": "IADE901234",
             "siparisDetaylari": {
@@ -70,7 +76,9 @@
             }
         },
         {
-            "email": "musteri4@ornek.com",
+            "email": "fatma.sahin@ornek.com",
+            "kullaniciAdi": "Fatma Şahin",
+            "adres": "Atatürk Bulv. 345. Sk. No: 56, Çankaya, Ankara, Türkiye",
             "siparisNumarasi": "SIP456789",
             "iadeNumarasi": "IADE012345",
             "siparisDetaylari": {
@@ -97,11 +105,13 @@
             }
         },
         {
-            "email": "musteri5@ornek.com",
+            "email": "ali.can@ornek.com",
+            "kullaniciAdi": "Ali Can",
+            "adres": "Fatih Mah. 678. Cad. No: 34, Bornova, İzmir, Türkiye",
             "siparisNumarasi": "SIP567890",
             "iadeNumarasi": "IADE123456",
             "siparisDetaylari": {
-                "urunAdi": "Kulaklik",
+                "urunAdi": "Kulaklık",
                 "urunFiyati": 100,
                 "urunKategorisi": "Elektronik",
                 "urunAdedi": 1,
